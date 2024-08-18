@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="./images/favicon.ico">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <a href="/index.html">
+                <img src="./images/logo.png">
+            </a>
+        </div>
+        <div class="links">
+            <a href="/about.html">
+                <p>About</p>
+            </a>
+            <a href="/security.html">
+                <p>Security</p>
+            </a>
+            <a href="/considerations.html">
+                <p>Considerations</p>
+            </a>
+            <a href="/resources.html">
+                <p>Resources</p>
+            </a>
+        </div>
+        
+    </div>
+    <div class="titleArea" >
+        <img src="./images/logoSymbol.png"/>
+        <h1>Security</h1>
+    </div>
+    <div class="talkPointsArea">
+        <h2 style="padding-top: 25px;">Initial Food for Thought</h2>
+        <div class="talkPoints">
+            <div class="thoughts">
+                <h4>Limit the use of req.params in code development?</h4>
+                <p>Can this potentially be the cause for injection issues by pulling data straight from the url</p>
+            </div>
+            <div class="thoughts">
+                <h4>Limit character use for input values</h4>
+                <p>Limit "$", "/", "."</p>
+            </div>
+            <div class="thoughts">
+                <h4>Prevent url's from being changed?</h4>
+                <p>What security functions can we implement</p>
+            </div>
+        </div>
+    </div>
+    <div class="talkPointsArea">
+        <h2 style="padding-top: 25px;">MongoDB API calls</h2>
+        <div class="talkPoints">
+            <div class="thoughts">
+                <h4><a href="https://www.mongodb.com/docs/manual/reference/operator/query/ne/#-ne">$ne</a></h4>
+                <p>Looks for items in the database that are "Not Equal To"</p>
+            </div>
+            <div class="thoughts">
+                <h4><a href="https://www.mongodb.com/docs/manual/reference/operator/query/where/">$where</a></h4>
+                <p>Pass either a string containing a JavaScript expression or a full JavaScript function to the query system. </p>
+                <p>Document.find({$where: javascript code here})</p>
+            </div>
+            <div class="thoughts">
+                <h4><a href="https://www.mongodb.com/docs/manual/reference/operator/query/gt/#mongodb-query-op.-gt">$gt</a></h4>
+                <p>Greater than query to select documents </p>
+                <p>Document.find({quantity: {$gt: 0 }})</p>
+            </div>
+            <div class="thoughts">
+                <h4><a href="https://www.mongodb.com/docs/manual/reference/operator/query/gt/#mongodb-query-op.-gt">MapReduce(deprecated)</a></h4>
+                <p>Although this function is deprecated, outdated systems can run across this vulnerability </p>
+            </div>
+            <div class="thoughts">
+                <h4><a href="https://www.mongodb.com/docs/manual/core/aggregation-pipeline/#std-label-aggregation-pipeline">Aggregation Pipeline</a></h4>
+                <p>Replaced the MapReduce function, what vulnerabilites are now in place due to the change?</p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h2>Tools to help</h2>
+        <div class="photoLeft">
+            <div class="photoContainer">
+                <img src="/images/Sanitize.png">
+            </div>
+            <div class="infoContainer">
+                <h2>For NoSQL</h2>
+                <p class="bulletPoint">•  Sanitize url using filters or "sanitizers" prevent things like /users/{$ne: null}</p>
+                <p class="bulletPoint">•  Several packages are out there for easy install for developers</p>
+                <p class="bulletPoint">•  <a href="https://www.npmjs.com/package/content-filter">npm content filter</a></p>
+                <p class="bulletPoint">•  <a href="https://github.com/vkarpov15/mongo-sanitize">npm Mongo-Sanitizer</a></p>
+                <p class="bulletPoint">•  <a href="https://tryhackme.com/r/room/nosqlinjectiontutorial">TryHackme.com </a>NoSQL injection</p>
+                <p class="bulletPoint">•  <a href="https://tryhackme.com/r/room/burpsuitebasics">Burp Suite </a>Burp Suite Training (TryHackme)</p>
+            </div>
+            
+        </div>
+        <div class="photoRight" style="background-color: lightslategray;">
+            <div class="infoContainer">
+                <h2>For SQL</h2>
+                <p class="bulletPoint">•  Prepared Statements <a href="https://www.w3schools.com/php/php_mysql_prepared_statements.asp#:~:text=A%20prepared%20statement%20is%20a,(labeled%20%22%3F%22).">Great Article Here</a></p>
+                <p class="bulletPoint">•  NoSQL injection attacks may execute in different areas of an application than traditional SQL injection (OWASP)</p>
+            </div>
+            <div class="photoContainer">
+                <img src="/images/securityPage.png">
+            </div>
+        </div>
+    </div>
+    <div class="photoLeft">
+        <div class="photoContainer">
+            <img src="/images/preparedStatements.PNG">
+        </div>
+        <div class="infoContainer">
+            <h2>SQL</h2>
+            <p class="bulletPoint">•  Example of what a prepared statement will do</p>
+        </div>
+        
+    </div>
+    <div class="talkPointsArea">
+        <h2 style="padding-top: 25px;">General Protection</h2>
+        <div class="talkPoints">
+            <div class="thoughts">
+                <h4>Input Validation</h4>
+            </div>
+            <div class="thoughts">
+                <h4>Least Privilege Policy or "Roles"</h4>
+            </div>
+            <div class="thoughts">
+                <h4>Salt / Hash important data before transmitting via web</h4>
+            </div>
+            <div class="thoughts">
+                <h4>Stay Up-To-Date With Secure Coding Practices</h4>
+            </div>
+            <div class="thoughts">
+                <h4>More SQL Examples</h4>
+                <a href="https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html" style="color: royalblue; text-decoration: underline;">
+                    <button>OWASP</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="cSharp">
+        <img src="./images/CSharp.png">
+    </div>
+</body>
+</html>
