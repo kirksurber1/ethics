@@ -203,42 +203,45 @@ button {
     height: 85vh;
   }
   
-  
-  /* @media only screen and(max-width: 1000px) {
-    .navbar {
+  @media (max-width: 1000px){
+    .hero {
+      background-size: 100vw;
+      background-repeat: no-repeat;
+      margin-top: 250px;
       width: 100%;
+      height: auto;
+      margin-bottom: 25px;
+    }
+    .overlay{
+      height: 100%;
+      width: 100%;
+    }
+    .navbar{
+      display: flex;
+      flex-direction: column;
+      height: 250px;
       transition: .5s;
     }
-    .navbar:hover{
-      height: 500px;
-    }
-    .links {
+    .links{
       display: flex;
       flex-direction: column;
-      margin: 2px;
+      font-size: 16px;
     }
-    .photoLeft{
-      display: flex;
-      flex-direction: column;
+    #logoPhoto{
+      width: 15%;
     }
-    .photoRight{
+    .photoLeft {
       display: flex;
       flex-direction: column;
     }
-    .photoContainer{
-      width: 100vw;
+    .photoRight {
+      display: flex;
+      flex-direction: column;
     }
-    .photoContainer img{
-      width: cover;
+    .photoContainer {
+      width: 100%;
     }
-    .talkPoints {
-      padding: 10px;
-      margin: 10px auto;
+    .infoContainer{
+      width: 90%;
     }
-    .thoughts{
-      width: 450px;
-      margin: 10px auto
-    }
-    
-  } */
-  
+  }
